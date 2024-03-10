@@ -8,29 +8,35 @@
     <script src="myscript.js" defer></script>
 </head>
 <body>
+    <h1>Project Calculator</h1>
+
     <div id="calculator">
-        <input id="display" readonly>
+        <input id="display" readonly></input>
         <div id="keys">
-            <button id="btnClear">C</button>
-            <button id="btnPosNeg">+/-</button>
-            <button id="btnPercent">%</button>
-            <button id="btnDivide">/</button>
-            <button id="btn7">7</button>
-            <button id="btn8">8</button>
-            <button id="btn9">9</button>
-            <button id="btnMultiply">*</button>
-            <button id="btn4">4</button>
-            <button id="btn5">5</button>
-            <button id="btn6">6</button>
-            <button id="btnMinus">-</button>
-            <button id="btn1">1</button>
-            <button id="btn2">2</button>
-            <button id="btn3">3</button>
-            <button id="btnPlus">+</button>
-            <button id="btn0">0</button>
-            <button id="btnDot">.</button>
-            <button id="btnDelete">Del</button>  
-            <button id="btnEquals">=</button>
+            <button id="btnClear" class="operator1">C</button>
+            <button id="btnPosNeg" class="operator1">+/-</button>
+            <button id="btnPercent" class="operator1">%</button>
+            <button id="btnOperator" class="operator2">÷</button>
+
+            <button id="btnNumber">7</button>
+            <button id="btnNumber">8</button>
+            <button id="btnNumber">9</button>
+            <button id="btnOperator" class="operator2">x</button>
+            
+            <button id="btnNumber">4</button>
+            <button id="btnNumber">5</button>
+            <button id="btnNumber">6</button>
+            <button id="btnOperator" class="operator2">-</button>
+            
+            <button id="btnNumber">1</button>
+            <button id="btnNumber">2</button>
+            <button id="btnNumber">3</button>
+            <button id="btnOperator" class="operator2">+</button>
+            
+            <button id="btnNumber">0</button>
+            <button id="btnNumber" class="decimal">.</button>
+            <button id="btnDelete" class="operator1">Del</button>  
+            <button id="btnEquals" class="operator2">=</button>
             
         </div>
     </div>
