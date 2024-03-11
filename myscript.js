@@ -34,10 +34,10 @@ function operate(operator, num1, num2) {
         case "-":
             operation = subtract(num1, num2);
             break;
-        case "x":
+        case "*":
             operation = multiply(num1, num2);
             break;
-        case "÷":
+        case "/":
             operation = divide(num1, num2);
             break;         
     }
@@ -59,7 +59,8 @@ function operate(operator, num1, num2) {
 
 const display = document.getElementById("display");
    
-const btnNumber = document.querySelectorAll('#btnNumber');
+
+const btnNumber = Array.from(document.querySelectorAll('#btnNumber'));
     btnNumber.forEach(numberBtn => numberBtn.addEventListener('click', () => {
         if (!operator){
            if(numberBtn.textContent === '.') {
@@ -94,7 +95,7 @@ const btnNumber = document.querySelectorAll('#btnNumber');
 
 
 //-- Function clicking Operator Buttons --//
-const btnOperator = document.querySelectorAll('#btnOperator');
+const btnOperator = Array.from(document.querySelectorAll('#btnOperator'));
     btnOperator.forEach(operatorBtn => operatorBtn.addEventListener('click', () => {
         enableDecimal();
         if (!num1){
@@ -187,3 +188,29 @@ const btnEquals = document.querySelector('#btnEquals');
         operator='';   
         }
     });
+
+
+
+//-- Function using Keyboard --//
+
+document.addEventListener('keydown', (keyboard) => {
+    const sameNumber = btnNumber.find((numberBtn) => numberBtn.textContent === keyboard.key);
+    const sameOperator = btnOperator.find((operatorBtn) => operatorBtn.textContent === keyboard.key);
+    
+    if (sameNumber){
+        sameNumber.click();
+    }
+    else if (sameOperator){
+        sameOperator.click();
+    }
+    else if (keyboard.key === "=" || keyboard.key === 'Enter') {
+        btnEquals.click();
+    }
+    else if (keyboard.key === 'Backspace' || keyboard.key === 'Delete') {
+        btnDelete.click();
+    }
+    else if (keyboard.key === 'Clear') {
+        btnClear.click();
+    }
+});
+
