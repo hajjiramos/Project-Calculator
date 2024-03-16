@@ -74,14 +74,18 @@ const btnNumber = Array.from(document.querySelectorAll('#btnNumber'));
                 if (!(numberBtn.textContent === '.')) {
                     num1 = numberBtn.textContent;
                 }
-                else if (numberBtn.textContent === '.') {
+                else {
+                    disableDecimal();
                     num1 += '.';
-                    disableDecimal();
                 }
-                else if (num1.includes('.')) {
-                    disableDecimal();
-                    num1 +=numberBtn.textContent;
-                }
+            }
+            else if (numberBtn.textContent === '.') {
+                disableDecimal();
+                num1 += '.';
+            }
+            else if (num1.includes('.')) {
+                disableDecimal();
+                num1 +=numberBtn.textContent;
             }
             else {
                 num1 +=numberBtn.textContent;       
@@ -94,14 +98,18 @@ const btnNumber = Array.from(document.querySelectorAll('#btnNumber'));
                 if (!(numberBtn.textContent === '.')) {
                     num2 = numberBtn.textContent;
                 }
-                else if(numberBtn.textContent === '.') {
+                else {
+                    disableDecimal();
                     num2 += '.';
-                    disableDecimal();
                 }
-                else if (num2.includes('.')) {
-                    disableDecimal();
-                    num2 +=numberBtn.textContent;
-                }
+            }
+            else if (numberBtn.textContent === '.') {
+                disableDecimal();
+                num2 += '.';
+            }
+            else if (num2.includes('.')) {
+                disableDecimal();
+                num2 +=numberBtn.textContent;
             }
             else {
                num2 +=numberBtn.textContent;
