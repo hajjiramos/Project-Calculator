@@ -18,7 +18,8 @@
 let num1= '';
 let num2= '';
 let operator='';
-let result ='';
+let result = '';
+
 
 //-- Function to Operate the Calculator --//
 
@@ -46,7 +47,7 @@ function operate(operator, num1, num2) {
     }
 
    if (!Number.isInteger(operation)){
-        return parseFloat(operation.toFixed(5));
+        return parseFloat(operation.toFixed(6));
     }
     else {
         return operation;
@@ -55,46 +56,71 @@ function operate(operator, num1, num2) {
 }
 
 
-//-- Function clicking Number Buttons --//
+//-- Initial Display Value --//
 
 const display = document.getElementById("display");
+   display.value = '0';
+   num1 = display.value;
+   num2 = '0';
+ 
+
    
+//-- Function clicking Number Buttons Array --//
 
 const btnNumber = Array.from(document.querySelectorAll('#btnNumber'));
     btnNumber.forEach(numberBtn => numberBtn.addEventListener('click', () => {
         if (!operator){
-           if(numberBtn.textContent === '.') {
-                disableDecimal();
-                num1 +='.';              
-            }
-            else if (num1.includes('.')) {
-                disableDecimal();
-                num1 +=numberBtn.textContent;
+            if (num1 === '0' || num1 === 0){
+                if (!(numberBtn.textContent === '.')) {
+                    num1 = numberBtn.textContent;
+                }
+                else if (numberBtn.textContent === '.') {
+                    num1 += '.';
+                    disableDecimal();
+                }
+                else if (num1.includes('.')) {
+                    disableDecimal();
+                    num1 +=numberBtn.textContent;
+                }
             }
             else {
                 num1 +=numberBtn.textContent;       
             }
             display.value = num1;
-           
+                       
         }
         else {
-            if(numberBtn.textContent === '.') {
-                num2 += '.';
-                disableDecimal();
-            }
-            else if (num2.includes('.')) {
-                disableDecimal();
-                num2 +=numberBtn.textContent;
+            if (num2 === '0' || num2 === 0){
+                if (!(numberBtn.textContent === '.')) {
+                    num2 = numberBtn.textContent;
+                }
+                else if(numberBtn.textContent === '.') {
+                    num2 += '.';
+                    disableDecimal();
+                }
+                else if (num2.includes('.')) {
+                    disableDecimal();
+                    num2 +=numberBtn.textContent;
+                }
             }
             else {
                num2 +=numberBtn.textContent;
             }
             display.value = num2;
+
+            console.log(num1 + ' num1')
+            console.log(operator + ' operator')
+            console.log(num2 + ' num2')
+            
         }
-       }));
 
 
-//-- Function clicking Operator Buttons --//
+    }));
+
+
+
+//-- Function clicking Operator Buttons Array--//
+
 const btnOperator = Array.from(document.querySelectorAll('#btnOperator'));
     btnOperator.forEach(operatorBtn => operatorBtn.addEventListener('click', () => {
         enableDecimal();
@@ -102,6 +128,7 @@ const btnOperator = Array.from(document.querySelectorAll('#btnOperator'));
             num1 = result;
             display.value = num1;
             operator = operatorBtn.textContent;
+            
         }
         else if (!operator) {
             operator = operatorBtn.textContent;
@@ -111,8 +138,8 @@ const btnOperator = Array.from(document.querySelectorAll('#btnOperator'));
             display.value = num1;
             operator = operatorBtn.textContent;
             num2 = ' ';
+            
         }
-       
     }));    
 
 
@@ -187,6 +214,7 @@ const btnEquals = document.querySelector('#btnEquals');
         num2='';
         operator='';   
         }
+        console.log(result + ' result');
     });
 
 
