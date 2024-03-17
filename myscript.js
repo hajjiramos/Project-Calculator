@@ -190,6 +190,7 @@ const btnPosNeg = document.querySelector('#btnPosNeg');
         }   
     });
 
+    
 //-- Function Delete number --//
 const btnDelete = document.querySelector('#btnDelete');
     btnDelete.addEventListener('click', () => {
@@ -203,6 +204,7 @@ const btnDelete = document.querySelector('#btnDelete');
         }
     });
 
+
 //-- Function Equals --//
 const btnEquals = document.querySelector('#btnEquals');
     btnEquals.addEventListener('click', () => {
@@ -215,7 +217,7 @@ const btnEquals = document.querySelector('#btnEquals');
         display.value = result;
         num1='';
         num2='';
-        operator='';   
+        operator='';  
         }
      });
 
