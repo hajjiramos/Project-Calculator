@@ -114,12 +114,7 @@ const btnNumber = Array.from(document.querySelectorAll('#btnNumber'));
             else {
                num2 +=numberBtn.textContent;
             }
-            display.value = num2;
-
-            console.log(num1 + ' num1')
-            console.log(operator + ' operator')
-            console.log(num2 + ' num2')
-            
+            display.value = num2;             
         }
 
 
@@ -222,8 +217,7 @@ const btnEquals = document.querySelector('#btnEquals');
         num2='';
         operator='';   
         }
-        console.log(result + ' result');
-    });
+     });
 
 
 
